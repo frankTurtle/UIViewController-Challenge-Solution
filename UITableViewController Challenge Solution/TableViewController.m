@@ -32,26 +32,38 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
+   
     // Return the number of sections.
-    return 0;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
+
     // Return the number of rows in the section.
-    return 0;
+    if (section == 0 ) //..................................................................... section 0 has 2 rows
+        return 2;
+    
+    else if (section == 1) //................................................................. section 1 has 1 row
+        return 1;
+    
+    else return 3; //......................................................................... section 2 has 3 rows
+    
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+
+    if (indexPath.section == 0) //.............................................................................. section 0 updates the text
+        cell.textLabel.text = @"I am in section 0"; //.......................................................... prints I am in section 0
     
-    // Configure the cell...
+    else if (indexPath.section == 1) //......................................................................... section 1
+        cell.textLabel.text = @"Another section"; //............................................................ prints another section
+    
+    else cell.textLabel.text = [NSString stringWithFormat:@"Cell row %li", (long)indexPath.row ]; //............ section 2 prints the rows
     
     return cell;
 }
-*/
 
 /*
 // Override to support conditional editing of the table view.
