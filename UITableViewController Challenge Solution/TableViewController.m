@@ -55,12 +55,22 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
 
     if (indexPath.section == 0) //.............................................................................. section 0 updates the text
+    {
         cell.textLabel.text = @"I am in section 0"; //.......................................................... prints I am in section 0
+        cell.backgroundColor = [UIColor redColor]; //........................................................... updates background color to red
+    }
     
     else if (indexPath.section == 1) //......................................................................... section 1
+    {
         cell.textLabel.text = @"Another section"; //............................................................ prints another section
+        cell.backgroundColor = [UIColor blueColor]; //.......................................................... updates the bg color to blue
+    }
     
-    else cell.textLabel.text = [NSString stringWithFormat:@"Cell row %li", (long)indexPath.row ]; //............ section 2 prints the rows
+    else
+    {
+        cell.textLabel.text = [NSString stringWithFormat:@"Cell row %li", (long)indexPath.row ]; //............ section 2 prints the rows
+        cell.backgroundColor = [UIColor yellowColor]; //....................................................... sets bg color to yellow
+    }
     
     return cell;
 }
